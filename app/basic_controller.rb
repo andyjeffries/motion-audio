@@ -14,7 +14,6 @@ class BasicController < UIViewController
   end
 
   def playAudio
-    # mySoundURL = CFBundleCopyResourceURL(CFBundleGetMainBundle, CFSTR("dummy"), CFSTR("wav"), nil)
     mySoundURL = NSBundle.mainBundle.URLForResource("dummy", withExtension:"wav")
 
     soundID = Pointer.new("I")
@@ -23,17 +22,5 @@ class BasicController < UIViewController
 
     AudioServicesPlaySystemSound(soundID[0])
   end
-
-  # def playAudio
-  #   url = NSURL.fileURLWithPath(NSBundle.mainBundle.pathForResource("dummy", ofType:"mp3"))
-  #   error = Pointer.new(:object)
-  #   audioPlayer = AVAudioPlayer.alloc.initWithContentsOfURL(url, error:error)
-
-  #   if (audioPlayer.nil?)
-  #     NSLog(error.description)
-  #   else
-  #     audioPlayer.play
-  #   end
-  # end
 
 end
